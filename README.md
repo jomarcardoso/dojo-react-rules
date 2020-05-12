@@ -2,7 +2,9 @@
 
 ## O nível do estado
 
-No React o estado é que determina qualquer alteração da DOM, no caso de aplicações que não usam um máquina de estados como redux, para diminuir o fluxo de props por componentes o estado deve ficar no nível mais baixo possível.
+**Estado = DOM**, quando o estado muda a renderização muda, logo, a tela só se atualiza com `setState`. Talvez isso já esteja claro, mas achei bom reforçar.
+
+No caso de aplicações que não usam um máquina de estados como redux, para diminuir o fluxo de props por componentes o estado deve ficar no nível mais baixo possível.
 
 ![image](https://user-images.githubusercontent.com/27368585/81748437-3ee2d800-9480-11ea-8eab-ef8d8f62dd55.png)
 
@@ -29,11 +31,13 @@ function CalculaFrete(props) {
 }
 ```
 
-As regras não escritas do React
+## Cuidado com loops
 
-A tela só se atualiza com `setState`.
+Cada vez que setamos um estado o React chama nosso componente de novo e se passar por aquele "setador" de estado ele vai setar e reiniciar o componente sem parar. Algumas coisas que podem ser feitas para isso não acontecer.
 
-Nunca faça uma verificação que seta o estado fora do `useEffect`.
+### seEffect
+
+Nunca setar estado automaticamente fora do `useEffect`.
 
 Quando o estado é um objeto ou array prefira um `setState` síncrono: `setState(prevValue => ...)`
 
