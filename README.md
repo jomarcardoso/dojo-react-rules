@@ -44,3 +44,37 @@ Quando o estado é um objeto ou array prefira um `setState` síncrono: `setState
 `Component.propTypes` vem acompanhado do `Component.defaultProps` e ambos devem ser usados.
 
 Lógica no meio do código fica feio.
+
+## Props
+
+As Props tem padrões de nomes e formas de trabalhar com elas.
+
+### Envie o resto das props para o elemento
+
+O intuito é que tudo que está no parâmetro `...props` vá para o primeiro elemento, repare que peguei o id abaixo, mas não tirei ele do props.
+
+Nesse exemplo estou fazendo um controle encadeado de id.
+
+```js
+function StepCard({
+  label,
+  children,
+  disabled,
+  ...props
+}) {
+  const { id } = props;
+
+  return (
+    <div className="card" {...props}>
+      <Accordion
+        id={`${id}-accordion`}
+        label={label}
+      >
+        <div className="card__body">
+          {children}
+        </div>
+      </Accordion>
+    </div>
+  )
+}
+```
