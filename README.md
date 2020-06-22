@@ -78,3 +78,17 @@ function StepCard({
   )
 }
 ```
+
+### Nomenclatura de props de eventos
+
+Para o elemento mandamos com o prefixo `on`, dentro do componente manipulamos com o prefixo `handle`.
+
+```js
+function CustomButton({ onClick, children, ...props }) {
+  handleClick(event) {
+    onClick(event);
+  }
+  
+  return <button onClick={handleClick} {...props}>{button}</button>;
+}
+```
