@@ -1,6 +1,69 @@
 # Regras não escritas do React
 
-## O nível do estado
+## Estado
+
+O que você precisa saber sobre os estados do React:
+
+- ele ditará quando deve mudar a renderização;
+- não tem a necessidade de ser duplicado, pois pode ser enviado a outros componentes por props.
+
+### 🚫 Estado com valor redundante
+
+Muito importante lembrar, o estado dita a renderização, então não é preciso criar um estado baseado no valor de outro, pois quando aquele mudar, vai passar renderizando tudo abaixo
+
+**errado**
+```js
+function Somadora() {
+  const [número1, setNúmero] = React.useState(0);
+  const [número2, setNúmero2] = React.useState(0);
+  const [soma, setSoma] = React.useState(0);
+
+  function handleClick() {
+    setNúmero(numero1 + 1);
+  }
+
+  function handleClick() {
+    setNúmero2(numero + 1);
+  }
+
+  React.useState(() => {
+    setSoma(número1 + número2);
+  }, [número]);
+
+  return (
+    <div>
+      <button onClick={handleClick}>acrescentar número 1</button>
+      <button onClick={handleClick2}>acrescentar número 2</button>
+      {soma}
+    </div>
+  );
+}
+```
+
+**certo**
+```js
+function Somadora() {
+  const [número1, setNúmero] = React.useState(0);
+  const [número2, setNúmero2] = React.useState(0);
+  const soma = número1 + número2;
+
+  function handleClick() {
+    setNúmero(numero1 + 1);
+  }
+
+  function handleClick() {
+    setNúmero2(numero + 1);
+  }
+
+  return (
+    <div>
+      <button onClick={handleClick}>acrescentar número 1</button>
+      <button onClick={handleClick2}>acrescentar número 2</button>
+      {soma}
+    </div>
+  );
+}
+```
 
 **Estado = DOM**, quando o estado muda a renderização muda, logo, a tela só se atualiza com `setState`. Talvez isso já esteja claro, mas achei bom reforçar.
 
