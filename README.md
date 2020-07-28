@@ -142,6 +142,28 @@ function StepCard({
 }
 ```
 
+### Props com nomes nativos
+
+Cuidar para não dar um nome que não seja o nativo quando for mandar um prop para um elemento.
+
+**errado**
+```js
+function CustomForm() {
+  return (
+    <CustomInput customClass="input-custom" />
+  );
+}
+```
+
+**errado**
+```js
+function CustomForm() {
+  return (
+    <CustomInput className="input-custom" />
+  );
+}
+```
+
 ### Nomenclatura de props de eventos
 
 Para o elemento mandamos com o prefixo `on`, dentro do componente manipulamos com o prefixo `handle`.
@@ -154,4 +176,20 @@ function CustomButton({ onClick, children, ...props }) {
   
   return <button onClick={handleClick} {...props}>{button}</button>;
 }
+```
+
+### ClassName & Classes
+
+O classes é uma regra não escrita onde enviamos um objeto com as classes de um componente complexo.
+
+**exemplo do Material UI**
+```js
+<Button
+  classes={{
+    root: classes.root, // class name, e.g. `classes-nesting-root-x`
+    label: classes.label, // class name, e.g. `classes-nesting-label-x`
+  }}
+>
+  classes nesting
+</Button>
 ```
