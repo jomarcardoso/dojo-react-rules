@@ -193,3 +193,30 @@ O classes é uma regra não escrita onde enviamos um objeto com as classes de um
   classes nesting
 </Button>
 ```
+
+## Fazendo gambiarras do bem
+
+### Editar um elemento filho
+
+Sempre clonar ele para não acontecer erros de quebra da imutabilidade.
+
+```js
+export function Radio({ input, className, ...props }) {
+  const clonedInput = React.cloneElement(input);
+  const { id } = props;
+  const classes = `ty-radio ${className}`;
+
+  clonedInput.props.className = 'ty-radio__input';
+  clonedInput.props = {
+    ...props,
+    ...clonedInput.props,
+  };
+
+  return (
+    <label className={classes} htmlFor={id}>
+      {clonedInput}
+      <div className="ty-radio__checkmark" />
+    </label>
+  );
+}
+```
