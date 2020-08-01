@@ -94,6 +94,13 @@ function CalculaFrete(props) {
 }
 ```
 
+### Regra Geral
+
+Não criar estados a não ser que
+
+- vá guardar o retorno de um AJAX.
+- vá guardar a interação de um usuário.
+
 ## Cuidado com loops
 
 Cada vez que setamos um estado o React chama nosso componente de novo e se passar por aquele "setador" de estado ele vai setar e reiniciar o componente sem parar. Algumas coisas que podem ser feitas para isso não acontecer.
