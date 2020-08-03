@@ -100,6 +100,8 @@ Não criar estados a não ser que
 
 - vá guardar o retorno de um AJAX.
 - vá guardar a interação de um usuário.
+- vá guardar um valor antigo que precisa ser revisto
+- queira criar um cronômetro ou contador
 
 ## Cuidado com loops
 
