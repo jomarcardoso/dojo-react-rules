@@ -4,6 +4,16 @@
 
 o estado no react é o mesmo de um estado da aplicação, como o react é um biblioteca de renderização, logo os estados possíveis são visuais. Cada estado então é como visualmente aquilo pode estar. Se uma aplicação tem um variável de estado, logo ela vai modificar inteira baseada naquele estado, se tiver 2 já começam a ter variações onde multiplicamos as possibilidades de estado de um com outro, assim vai.
 
+### História do cachorro na banheira
+
+Imagine um cachorro numa banheira, tomando banho e você tem o controle da temperatura dessa água que pode estar em 3 únicos estados congelada, morna e fervendo.
+
+Agora se olharmos isoladamente para o cachorro ele também pode estar em 3 estados congelado, molhado e feliz, e "morrendo de calor".
+
+Isoladamente são variações de estado de cada elemento da nossa história, porém nela os dois se alteram juntos, quando a água está congelada, o cachorro também está, se a água está morna o cachorro está molhado e feliz e se estiver fervendo o cachorro está "morrendo de calor".
+
+Não seria uma verdade na nossa história multiplicar as variações dos estados do cachorro com os da água que resultaria num toltal de 9 estados, o que não seria verdade.
+
 O que você precisa saber sobre os estados do React:
 
 - ele ditará quando deve mudar a renderização;
