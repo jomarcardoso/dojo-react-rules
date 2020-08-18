@@ -242,3 +242,11 @@ export function Radio({ input, className, ...props }) {
   );
 }
 ```
+
+## Ordem de métodos
+
+1. estados e variáveis
+2. outros
+3. manipuladores de eventos
+4. métodos render
+5. useEffects
