@@ -164,9 +164,17 @@ function StepCard({
 }
 ```
 
-### Props com nomes nativos
+### Nomenclatura padrão de props
 
-Cuidar para não dar um nome que não seja o nativo quando for mandar um prop para um elemento.
+As especificações da W3C ditam o nome de atributos que os navegadores devem seguir, porém a equipe do React sobrescreve alguns deles em código, mas que no resultado compilado é igual, por exemplo o atributo `onclick` que em React é `onClick`.
+
+Então por ordem de prioridade:
+
+1. nomenclatura padrão do react
+2. nomenclatura padrão da web
+3. personalizado pelo desenvolvedor
+
+Trabalhar com padrões facilita o entendimento de quem irá dar manutenção.
 
 **errado**
 ```js
