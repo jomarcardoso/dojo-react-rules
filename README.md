@@ -251,6 +251,37 @@ export function Radio({ input, className, ...props }) {
 }
 ```
 
+## UseEffect
+
+### Dar nome a eles
+
+```js
+function verifyCartDataAndUpdateDeliveries() {
+  const { cep } = values;
+  const { hasDeliveryOptions: notFetched } = cartData;
+
+  if (!cep || notFetched) return;
+
+  fetchByCep(cep);
+}
+
+function verifyAndGetByPersistentCEP() {
+  const persistentCep = DeliveryCalculateService.getCepFromCookies();
+
+  if (persistentCep) {
+    setValueByName('cep', persistentCep);
+  }
+}
+
+useEffect(() => {
+  verifyCartDataAndUpdateDeliveries();
+}, [cartData]);
+
+useEffect(() => {
+  verifyAndGetByPersistentCEP();
+}, []);
+```
+
 ## Ordem de métodos
 
 1. estados e variáveis
