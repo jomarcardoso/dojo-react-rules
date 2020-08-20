@@ -273,13 +273,8 @@ function verifyAndGetByPersistentCEP() {
   }
 }
 
-useEffect(() => {
-  verifyCartDataAndUpdateDeliveries();
-}, [cartData]);
-
-useEffect(() => {
-  verifyAndGetByPersistentCEP();
-}, []);
+useEffect(verifyCartDataAndUpdateDeliveries, [cartData]);
+useEffect(verifyAndGetByPersistentCEP, []);
 ```
 
 ## Ordem de métodos
