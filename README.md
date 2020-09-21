@@ -1,5 +1,7 @@
 # Regras não escritas do React
 
+As regras que não estão na documentação, mas já são um padrão adotado pela comunidade.
+
 ## Estado
 
 o estado no react é o mesmo de um estado da aplicação, como o react é um biblioteca de renderização, logo os estados possíveis são visuais. Cada estado então é como visualmente aquilo pode estar. Se uma aplicação tem um variável de estado, logo ela vai modificar inteira baseada naquele estado, se tiver 2 já começam a ter variações onde multiplicamos as possibilidades de estado de um com outro, assim vai.
