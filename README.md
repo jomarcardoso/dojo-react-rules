@@ -354,3 +354,47 @@ useEffect(verifyAndGetByPersistentCEP, []);
 3. manipuladores de eventos
 4. métodos render
 5. useEffects
+
+## Funções >>> Classes
+
+O React não abandonou as classes (ainda), mas pelo seu material, tanto escrito como em vídeo, o recomendado é usar funções. A minha opinião é a mesma.
+
+```js
+class Button() extends Component {
+  constructor(props) {
+    super(props);
+    
+    this.state = {
+      toggle: false
+    }
+
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleToggle(toggle) {
+    this.setState({ toggle });
+  }
+
+  handleClick(event) {
+    this.props.onClick(event);
+    this.handleToggle(!this.state.toggle);
+  }
+
+  render() {
+    return <button onClick={this.handleClick}>marcar<button>;
+  }
+}
+```
+
+```js
+function Button({ onClick }) {
+  const [toggle, setToggle] = useState(false);
+  
+  handleClick(event) {
+    onClick(event);
+    setToggle(!toggle);
+  }
+  
+  return <button onClick={handleClick}>marcar<button>;
+}
+```
