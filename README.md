@@ -173,10 +173,10 @@ As especificações da W3C ditam o nome de atributos que os navegadores devem se
 Então por ordem de prioridade:
 
 1. nomenclatura padrão do react
-2. nomenclatura padrão da web
+2. nomenclatura padrão da comunidade
 3. personalizado pelo desenvolvedor
 
-Trabalhar com padrões facilita o entendimento de quem irá dar manutenção.
+Trabalhar com padrões facilita o entendimento de quem irá dar manutenção. Também é melhor reaproveitado.
 
 **errado**
 ```js
@@ -196,18 +196,44 @@ function CustomForm() {
 }
 ```
 
-### Nomenclatura de props de eventos
+### Nomenclatura de props de eventos ou estado
 
 Para o elemento mandamos com o prefixo `on`, dentro do componente manipulamos com o prefixo `handle`.
 
 ```js
 function CustomButton({ onClick, children, ...props }) {
   handleClick(event) {
-    onClick(event);
+    onClick(event); // propagar o evento
   }
   
   return <button onClick={handleClick} {...props}>{button}</button>;
 }
+```
+
+```js
+function CustomButton({ children, ...props }) {
+  const [toglle, setToggle] = useState(false);
+  
+  handleToggle() {
+    setToggle(!toggle);
+  }
+  
+  return <Button onClick={handleClick} {...props}>{button}</Button>; // componente react Button
+}
+```
+
+### Children
+
+O children está aí para ser usado.
+
+**errado**
+```js
+<Button text="botão errado" />
+```
+
+**correto**
+```js
+<Button>botão correto</Button>
 ```
 
 ### ClassName & Classes
@@ -218,12 +244,22 @@ O classes é uma regra não escrita onde enviamos um objeto com as classes de um
 ```js
 <Button
   classes={{
-    root: classes.root, // class name, e.g. `classes-nesting-root-x`
-    label: classes.label, // class name, e.g. `classes-nesting-label-x`
+    root: classes.root,
+    label: classes.label,
   }}
 >
   classes nesting
 </Button>
+```
+
+```js
+function Button({ classes, children }) {
+  return (
+    <button className={classes.root}>
+      <span className={classes.label}>{children}</span>
+    </button>
+  );
+}
 ```
 
 ## Fazendo gambiarras do bem
