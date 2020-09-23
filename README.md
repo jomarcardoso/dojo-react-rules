@@ -445,12 +445,43 @@ function Button() {
 
 As vezes precisamos de uma certa lógica seja reaproveitada em vários locais, seja seu estado e ou seu ciclo de vida. Um exemplo bem comum disso é o componente de formulário.
 
-**classe**
+**classe + hoc**
 ```js
-class FormulárioEndereço() {
+function withForm(WrapperComponent) {
+  const [fields, setFields] = useState({});
 
+  useEffect(() => {
+    // faz algo
+  }, []);
+
+  return function (props) {
+    return <WrapperComponent fields={fields} {...prps} />
+  }
+}
+
+class FormulárioEndereço() {
+  // ...
 }
 
 withForm(FormulárioEndereço);
+```
+
+**função + hooks**
+```js
+function useForm() {
+  const [fields, setFields] = useState({});
+
+  useEffect(() => {
+    // faz algo
+  }, []);
+
+  return { fields, setFields };
+}
+
+class FormulárioEndereço() {
+  const { fields, setFields } = useForm();
+  // ...
+}
+
 ```
 
