@@ -262,6 +262,38 @@ function Button({ classes, children }) {
 }
 ```
 
+### Tipo do prop + valor padrão
+
+O tipo é muito útil para saber o que enviar para o componente. Valores padrões evitarão erros e possibilitam uma renderização prévia.
+
+Pode ser feito com:
+- PropTypes: `Component.proptTypes` + `Component.defaultProps`;
+- Typescript 😇: `interface Props` + valor padrão do argumento.
+
+```js
+import PropTypes from 'prop-types';
+
+const Button = ({ children, className }) => <button className={className}>{children}<button>;
+
+Button.propTypes = {
+  children: PropTypes.node,
+  className: PropTypes.string,
+};
+
+Button.defaultPorps = {
+  children: 'avançar',
+  className: '',
+};
+```
+
+```ts
+interface {
+  className: string;
+}
+
+const Button: FC<Props> = ({ children = 'avançar', className = '' }) => <button>{children}<button>;
+```
+
 ## Fazendo gambiarras do bem
 
 ### Editar um elemento filho
