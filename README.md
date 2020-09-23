@@ -360,7 +360,7 @@ useEffect(verifyAndGetByPersistentCEP, []);
 O React não abandonou as classes (ainda), mas pelo seu material, tanto escrito como em vídeo, o recomendado é usar funções. A minha opinião é a mesma.
 
 ```js
-class Button() extends Component {
+class Button extends Component {
   constructor(props) {
     super(props);
     
@@ -398,3 +398,59 @@ function Button({ onClick }) {
   return <button onClick={handleClick}>marcar<button>;
 }
 ```
+
+### Funções + Hooks
+
+Os hooks implementaram os ciclos de vida de componentes funções.
+
+Um comparativo dos métodos de ciclo de vida nos componentes classes e funções.
+
+**classe*
+```js
+class Button extends Component {
+  /* ...
+  
+  componentDidMount() {
+    // faz algo após montar
+  }
+
+  componentWillUnmount() {
+    // faz algo antes de desmontar
+  }
+
+  componentDidUpdate() {
+    // faz algo ao receber props ou alterar o estado
+  }
+  
+  /* ...
+}
+```
+
+**função**
+```js
+function Button() {
+  useEffect(() => {
+    // faz algo após montar
+    return // faz algo antes de desmontar
+  }, []);
+
+  useEffect(() => {
+    // faz algo ao receber props ou alterar o estado
+  }); // não tem parâmetro de entrada, sempre entra
+  // ...
+}
+```
+
+### Componentes de lógica
+
+As vezes precisamos de uma certa lógica seja reaproveitada em vários locais, seja seu estado e ou seu ciclo de vida. Um exemplo bem comum disso é o componente de formulário.
+
+**classe**
+```js
+class FormulárioEndereço() {
+
+}
+
+withForm(FormulárioEndereço);
+```
+
