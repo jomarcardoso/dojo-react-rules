@@ -126,8 +126,6 @@ Cada vez que setamos um estado o React chama nosso componente de novo e se passa
 
 Nunca setar estado automaticamente fora do `useEffect`.
 
-Quando o estado é um objeto ou array prefira um `setState` síncrono: `setState(prevValue => ...)`
-
 ## Props
 
 As Props tem padrões de nomes e formas de trabalhar com elas.
@@ -481,9 +479,11 @@ class FormulárioEndereço() {
 
 ```
 
-## Renderização 
+## Outras regras
 
 Lógica no meio da marcação, não!
+
+Quando o estado é um objeto ou array prefira um `setState` síncrono: `setState(prevValue => ...)`
 
 ## Links úteis
 
