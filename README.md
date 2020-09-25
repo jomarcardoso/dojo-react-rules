@@ -122,9 +122,8 @@ Não criar estados a não ser que
 
 Cada vez que setamos um estado o React chama nosso componente de novo e se passar por aquele "setador" de estado ele vai setar e reiniciar o componente sem parar. Algumas coisas que podem ser feitas para isso não acontecer.
 
-### useEffect
-
-Nunca setar estado automaticamente fora do `useEffect`.
+- Nunca setar estado automaticamente fora do `useEffect`.
+- Não duplicar estados.
 
 ## Props
 
