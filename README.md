@@ -399,7 +399,7 @@ Os hooks implementaram os ciclos de vida de componentes funções.
 
 Um comparativo dos métodos de ciclo de vida nos componentes classes e funções.
 
-**classe*
+**classe**
 ```js
 class Button extends Component {
   /* ...
