@@ -128,10 +128,6 @@ Nunca setar estado automaticamente fora do `useEffect`.
 
 Quando o estado é um objeto ou array prefira um `setState` síncrono: `setState(prevValue => ...)`
 
-`Component.propTypes` vem acompanhado do `Component.defaultProps` e ambos devem ser usados.
-
-Lógica no meio do código fica feio.
-
 ## Props
 
 As Props tem padrões de nomes e formas de trabalhar com elas.
@@ -484,6 +480,10 @@ class FormulárioEndereço() {
 }
 
 ```
+
+## Renderização 
+
+Lógica no meio da marcação, não!
 
 ## Links úteis
 
