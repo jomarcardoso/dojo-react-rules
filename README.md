@@ -167,7 +167,8 @@ Então por ordem de prioridade:
 
 1. nomenclatura padrão do react
 2. nomenclatura padrão da comunidade
-3. personalizado pelo desenvolvedor
+3. da web
+4. personalizado pelo desenvolvedor
 
 Trabalhar com padrões facilita o entendimento de quem irá dar manutenção. Também é melhor reaproveitado.
 
